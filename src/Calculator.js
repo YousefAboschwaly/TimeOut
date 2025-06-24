@@ -32,7 +32,9 @@ function Calculator({ workouts, allowSound }) {
   playSound();
   },[allowSound, duration]);
 
-
+useEffect(function(){
+    document.title= `Your ${number} exercise`
+},[number]);
   
  function handleInc (){
   setDuration((duration)=>Math.floor(duration) + 1)
