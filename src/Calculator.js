@@ -19,17 +19,22 @@ function Calculator({ workouts, allowSound }) {
   };
 
 
- function handleInc (){
-  setDuration((duration)=>Math.floor(duration) + 1)
- }
- function handleDec (){
-  setDuration((duration)=>duration>1? Math.ceil(duration) - 1 :0)
- }
 
   useEffect(function(){
     setDuration( (number * sets * speed) / 60 + (sets - 1) * durationBreak)
+    playSound();
+  },[number, sets, speed, durationBreak,playSound]);
 
-  },[number, sets, speed, durationBreak]);
+
+  
+ function handleInc (){
+  setDuration((duration)=>Math.floor(duration) + 1)
+  playSound();
+ }
+ function handleDec (){
+  setDuration((duration)=>duration>1? Math.ceil(duration) - 1 :0)
+  playSound();
+ }
 
   return (
     <>
